@@ -89,4 +89,17 @@ contract('NullToken', function(accounts) {
     });
   });
 
+  it('Functional test for delegated transfer', function(){
+    return NullToken.deployed().then(function(instance){
+      nullTokenInstance = instance;
+      fromAccount = accounts[0];
+      toAccount = accounts[1];
+      spenderAccount = accounts[3];
+      //approve spending account to spend from fromAccount
+      return nullTokenInstance.approve(spenderAccount, 100, {from : fromAccount});
+    }).then(function(receipt){
+
+    });
+  })
+
 })//end of contract

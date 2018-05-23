@@ -40,10 +40,17 @@ contract NullToken {
   function approve(address _spenderAddress, uint256 _value) public returns (bool success){
     //check if the approver has tokens > sending value
     require(balanceOf[msg.sender] >= _value);
-    allowance[msg.sender][_spender] = _value;
+    allowance[msg.sender][_spenderAddress] = _value;
     Approval(msg.sender, _spenderAddress, _value);
 
     return true;
+  }
+
+  function transferFrom(address _fromAddress, address _toAddress, uint256 _value) public returns (bool success){
+
+
+    return true;
+
   }
 
 }//end of contract
