@@ -1,3 +1,9 @@
+/**
+NullToken SmartContract Deployment Test
+
+Author : Stanly Johnson (stanlyjohnson@outlook.com)
+**/
+
 var NullToken = artifacts.require("./NullToken.sol");
 
 contract('NullToken', function(accounts) {
@@ -62,6 +68,25 @@ contract('NullToken', function(accounts) {
     }).then(function(ownerBalance){
       assert.equal(ownerBalance.toNumber(), $totalCount-$transferTokenTestNumber, 'deduct the value from the sender account');
     })
+  });
+
+  //check for approval conditions
+  it('Test for approval delegated transfer', function(){
+    return NullToken.deployed().then(function(instance){
+      nullTokenInstance = instance;
+      return nullTokenInstance.approve.call($ownerAddress, 100);
+    }).then(function(success){
+      assert.equal(success, true, 'returns true');
+      //check for limit test
+      return nullTokenInstance.approve($recipentAddress, $totalCount+100);
+    }).then(assert.fail).catch(function(error){
+      assert(error.message.indexOf('revert') >= 0, 'error message must have revert');
+      return nullTokenInstance.approve($recipentAddress, 100, {from : $ownerAddress});
+    }).then(function(receipt){
+      return nullTokenInstance.allowance($ownerAddress, $recipentAddress);
+    }).then(function(allowance){
+      assert.equal(allowance, 100, 'store the allowance value');
+    });
   });
 
 })//end of contract
