@@ -20,6 +20,10 @@ contract NullToken {
       require(balanceOf[msg.sender] >= _value);
       balanceOf[msg.sender] -= _value;
       balanceOf[_toAddress] += _value;
+
+      Transfer(msg.sender, _toAddress, _value);
+
+      return true;
   }
 
 }//end of contract

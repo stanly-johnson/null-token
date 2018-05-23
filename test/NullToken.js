@@ -50,6 +50,9 @@ contract('NullToken', function(accounts) {
       return nullTokenInstance.transfer.call($ownerAddress, $totalCount+100);
     }).then(assert.fail).catch(function(error){
       assert(error.message.indexOf('revert') >= 0, 'error message must have revert');
+      return nullTokenInstance.transfer.call($recipentAddress, $transferTokenTestNumber, { from : $ownerAddress});
+    }).then(function(success){
+      assert.equal(success, true, 'return true for correct txn');
       return nullTokenInstance.transfer($recipentAddress, $transferTokenTestNumber, { from : $ownerAddress});
     }).then(function(receipt){
       return nullTokenInstance.balanceOf($recipentAddress);
