@@ -16,30 +16,35 @@
       "type": "function"
     },
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "_seedAmount",
+          "type": "uint256"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "constructor"
     }
   ],
-  "bytecode": "0x6080604052348015600f57600080fd5b506103e8600081905550609e806100276000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820a75327a5e88cd978fa0e27c11be729ccf4a8c95b8a1124a980b7319d6d174e130029",
-  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820a75327a5e88cd978fa0e27c11be729ccf4a8c95b8a1124a980b7319d6d174e130029",
-  "sourceMap": "25:117:1:-;;;80:60;8:9:-1;5:2;;;30:1;27;20:12;5:2;80:60:1;130:4;116:11;:18;;;;25:117;;;;;;",
-  "deployedSourceMap": "25:117:1:-;;;;;;;;;;;;;;;;;;;;;;;;49:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;49:26:1;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.2;\n\ncontract NullToken {\n\n  uint256 public totalSupply;\n\n  function NullToken() public {\n      totalSupply = 1000;\n\n  }\n}\n",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516020806100e7833981018060405281019080805190602001909291905050508060008190555050609e806100496000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820cad4031d28df77e626d13dce193d62f530dfc0122c866edd3bcc4f288c252b9a0029",
+  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a72305820cad4031d28df77e626d13dce193d62f530dfc0122c866edd3bcc4f288c252b9a0029",
+  "sourceMap": "25:142:0:-;;;80:85;8:9:-1;5:2;;;30:1;27;20:12;5:2;80:85:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;149:11;135;:25;;;;80:85;25:142;;;;;;",
+  "deployedSourceMap": "25:142:0:-;;;;;;;;;;;;;;;;;;;;;;;;49:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;49:26:0;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.2;\n\ncontract NullToken {\n\n  uint256 public totalSupply;\n\n  function NullToken(uint256 _seedAmount) public {\n      totalSupply = _seedAmount;\n  }\n}\n",
   "sourcePath": "/Users/jacobgeorge/Documents/null-token/contracts/NullToken.sol",
   "ast": {
     "absolutePath": "/Users/jacobgeorge/Documents/null-token/contracts/NullToken.sol",
     "exportedSymbols": {
       "NullToken": [
-        69
+        14
       ]
     },
-    "id": 70,
+    "id": 15,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 58,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -47,7 +52,7 @@
           ".2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:0"
       },
       {
         "baseContracts": [],
@@ -55,20 +60,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 69,
+        "id": 14,
         "linearizedBaseContracts": [
-          69
+          14
         ],
         "name": "NullToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 60,
+            "id": 3,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 69,
-            "src": "49:26:1",
+            "scope": 14,
+            "src": "49:26:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -76,10 +81,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 59,
+              "id": 2,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "49:7:1",
+              "src": "49:7:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -90,26 +95,26 @@
           },
           {
             "body": {
-              "id": 67,
+              "id": 12,
               "nodeType": "Block",
-              "src": "108:32:1",
+              "src": "127:38:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 65,
+                    "id": 10,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 63,
+                      "id": 8,
                       "name": "totalSupply",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 60,
-                      "src": "116:11:1",
+                      "referencedDeclaration": 3,
+                      "src": "135:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -119,36 +124,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "hexValue": "31303030",
-                      "id": 64,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "130:4:1",
-                      "subdenomination": null,
+                      "id": 9,
+                      "name": "_seedAmount",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5,
+                      "src": "149:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_rational_1000_by_1",
-                        "typeString": "int_const 1000"
-                      },
-                      "value": "1000"
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
                     },
-                    "src": "116:18:1",
+                    "src": "135:25:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 66,
+                  "id": 11,
                   "nodeType": "ExpressionStatement",
-                  "src": "116:18:1"
+                  "src": "135:25:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 68,
+            "id": 13,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -156,43 +156,70 @@
             "name": "NullToken",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 61,
+              "id": 6,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "98:2:1"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5,
+                  "name": "_seedAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13,
+                  "src": "99:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "99:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "98:21:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 62,
+              "id": 7,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "108:0:1"
+              "src": "127:0:0"
             },
-            "scope": 69,
-            "src": "80:60:1",
+            "scope": 14,
+            "src": "80:85:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 70,
-        "src": "25:117:1"
+        "scope": 15,
+        "src": "25:142:0"
       }
     ],
-    "src": "0:143:1"
+    "src": "0:168:0"
   },
   "legacyAST": {
     "absolutePath": "/Users/jacobgeorge/Documents/null-token/contracts/NullToken.sol",
     "exportedSymbols": {
       "NullToken": [
-        69
+        14
       ]
     },
-    "id": 70,
+    "id": 15,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 58,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -200,7 +227,7 @@
           ".2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:0"
       },
       {
         "baseContracts": [],
@@ -208,20 +235,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 69,
+        "id": 14,
         "linearizedBaseContracts": [
-          69
+          14
         ],
         "name": "NullToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 60,
+            "id": 3,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 69,
-            "src": "49:26:1",
+            "scope": 14,
+            "src": "49:26:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -229,10 +256,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 59,
+              "id": 2,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "49:7:1",
+              "src": "49:7:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -243,26 +270,26 @@
           },
           {
             "body": {
-              "id": 67,
+              "id": 12,
               "nodeType": "Block",
-              "src": "108:32:1",
+              "src": "127:38:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 65,
+                    "id": 10,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 63,
+                      "id": 8,
                       "name": "totalSupply",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 60,
-                      "src": "116:11:1",
+                      "referencedDeclaration": 3,
+                      "src": "135:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -272,36 +299,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "hexValue": "31303030",
-                      "id": 64,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "130:4:1",
-                      "subdenomination": null,
+                      "id": 9,
+                      "name": "_seedAmount",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5,
+                      "src": "149:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_rational_1000_by_1",
-                        "typeString": "int_const 1000"
-                      },
-                      "value": "1000"
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
                     },
-                    "src": "116:18:1",
+                    "src": "135:25:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 66,
+                  "id": 11,
                   "nodeType": "ExpressionStatement",
-                  "src": "116:18:1"
+                  "src": "135:25:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 68,
+            "id": 13,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -309,30 +331,57 @@
             "name": "NullToken",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 61,
+              "id": 6,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "98:2:1"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5,
+                  "name": "_seedAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13,
+                  "src": "99:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "99:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "98:21:0"
             },
             "payable": false,
             "returnParameters": {
-              "id": 62,
+              "id": 7,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "108:0:1"
+              "src": "127:0:0"
             },
-            "scope": 69,
-            "src": "80:60:1",
+            "scope": 14,
+            "src": "80:85:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 70,
-        "src": "25:117:1"
+        "scope": 15,
+        "src": "25:142:0"
       }
     ],
-    "src": "0:143:1"
+    "src": "0:168:0"
   },
   "compiler": {
     "name": "solc",
@@ -342,10 +391,10 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x00609a99133a241243d85f11a7aa47057d1d1cd4",
-      "transactionHash": "0x5e16feb8c6e119639074f2064087e76f1fa5390e30d35288ecdc7b89186ea52f"
+      "address": "0x0891f10199982476ac04d0fb74fce24516dbf9e5",
+      "transactionHash": "0xbb99ed2779ed615770d624f9c47ab8a490ab1166ac67f7aaa0f51e4816e9cea1"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-23T12:16:32.053Z"
+  "updatedAt": "2018-05-23T12:45:11.580Z"
 }

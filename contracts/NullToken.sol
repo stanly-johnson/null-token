@@ -4,8 +4,10 @@ contract NullToken {
 
   uint256 public totalSupply;
 
-  function NullToken() public {
-      totalSupply = 1000;
+  mapping(address => uint256) public balanceOf;
 
+  function NullToken(uint256 _seedAmount) public {
+      totalSupply = _seedAmount;
+      balanceOf[msg.sender] = totalSupply;
   }
 }
