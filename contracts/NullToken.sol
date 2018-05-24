@@ -3,6 +3,7 @@ NullToken SmartContract
 Confirms to EIP20 standard
 https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
 Author : Stanly Johnson (stanlyjohnson@outlook.com)
+Repo : https://github.com/stanly-johnson/null-token
 **/
 
 pragma solidity ^0.4.2;
@@ -32,7 +33,7 @@ contract NullToken {
       require(balanceOf[msg.sender] >= _value);
       balanceOf[msg.sender] -= _value;
       balanceOf[_toAddress] += _value;
-      Transfer(msg.sender, _toAddress, _value);
+      emit Transfer(msg.sender, _toAddress, _value);
       return true;
   }
 
@@ -41,13 +42,19 @@ contract NullToken {
     //check if the approver has tokens > sending value
     require(balanceOf[msg.sender] >= _value);
     allowance[msg.sender][_spenderAddress] = _value;
-    Approval(msg.sender, _spenderAddress, _value);
-
+    emit Approval(msg.sender, _spenderAddress, _value);
     return true;
   }
 
   function transferFrom(address _fromAddress, address _toAddress, uint256 _value) public returns (bool success){
 
+    require(balanceOf[_fromAddress] >= _value);
+    require(allowance[_fromAddress][msg.sender] >= _value);
+
+    balanceOf[_fromAddress] -= _value;
+    balanceOf[_toAddress] += _value;
+
+    emit Transfer(_fromAddress, _toAddress, _value);
 
     return true;
 
