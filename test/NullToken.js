@@ -136,7 +136,10 @@ contract('NullToken', function(accounts) {
       return nullTokenInstance.balanceOf(fromAccount);
     }).then(function(balance){
       assert.equal(balance.toNumber(), 80, 'deduct amount from fromAccount');
+      return nullTokenInstance.allowance(fromAccount, spenderAccount);
+    }).then(function(allowance){
+      assert.equal(allowance, 0, 'test spent amount was deducted from the allowance');
     });
-  })
+  });
 
 })//end of contract

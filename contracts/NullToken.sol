@@ -50,12 +50,10 @@ contract NullToken {
 
     require(balanceOf[_fromAddress] >= _value);
     require(allowance[_fromAddress][msg.sender] >= _value);
-
     balanceOf[_fromAddress] -= _value;
     balanceOf[_toAddress] += _value;
-
+    allowance[_fromAddress][msg.sender] -= _value;
     emit Transfer(_fromAddress, _toAddress, _value);
-
     return true;
 
   }
