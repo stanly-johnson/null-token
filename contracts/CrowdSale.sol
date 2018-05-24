@@ -16,6 +16,8 @@ contract CrowdSale {
   uint256 public tokenPrice;
   uint256 public tokensSold;
 
+  event Sell(address _buyer, uint256 _amount);
+
   //constructor
   function CrowdSale(NullToken _tokenContract, uint256 _tokenPrice) public {
     admin = msg.sender;
@@ -26,9 +28,9 @@ contract CrowdSale {
   //buyTokens function
   function buyTokens (uint256 _numberOfToken) public payable {
 
+    require(msg.value == _numberOfToken * tokenPrice);
+    emit Sell(msg.sender, _numberOfToken);
     tokensSold += _numberOfToken;
   }
-
-
 
 }

@@ -33,12 +33,20 @@ contract ('CrowdSale', function(accounts){
     return CrowdSale.deployed().then(function(instance){
       tokenCrowdSaleInstance = instance;
       numberOfTokens = 10;
-      return tokenCrowdSaleInstance.buyTokens(numberOfTokens, {from : tokenBuyer, value : numberOfTokens * tokenPrice})
+      return tokenCrowdSaleInstance.buyTokens(numberOfTokens, {from : tokenBuyer, value : numberOfTokens * tokenPrice});
     }).then(function(receipt){
+      assert.equal(receipt.logs.length, 1, 'triggers one event');
+      assert.equal(receipt.logs[0].event, 'Sell', 'should be the "Transfer" event');
+      assert.equal(receipt.logs[0].args._buyer, tokenBuyer, 'logs the buyer of the tokens');
+      assert.equal(receipt.logs[0].args._amount, numberOfTokens, 'logs the transferred number');
       return tokenCrowdSaleInstance.tokensSold();
     }).then(function(amount){
       assert.equal(amount.toNumber(), numberOfTokens, 'increments the number of tokens sold');
-    })
+      //test for limit
+      return tokenCrowdSaleInstance.buyTokens(numberOfTokens, {from : tokenBuyer, value : 10});
+    }).then(assert.fail).catch(function(error){
+      assert(error.message.indexOf('revert') >= 0, 'transaction must fail - value-token mismatch');
+    });
   });
 
 });//end of contract
