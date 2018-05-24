@@ -13,10 +13,22 @@ contract CrowdSale {
 
   address admin;
   NullToken public tokenContract;
+  uint256 public tokenPrice;
+  uint256 public tokensSold;
 
-  function CrowdSale(NullToken _tokenContract) public {
+  //constructor
+  function CrowdSale(NullToken _tokenContract, uint256 _tokenPrice) public {
     admin = msg.sender;
     tokenContract = _tokenContract;
+    tokenPrice = _tokenPrice;
   }
+
+  //buyTokens function
+  function buyTokens (uint256 _numberOfToken) public payable {
+
+    tokensSold += _numberOfToken;
+  }
+
+
 
 }
