@@ -129,12 +129,12 @@ contract('NullToken', function(accounts) {
       assert.equal(receipt.logs[0].args._from, fromAccount, 'logs the account the tokens are transferred from');
       assert.equal(receipt.logs[0].args._to, toAccount, 'logs the account the tokens are transferred to');
       assert.equal(receipt.logs[0].args._value.toNumber(), 10, 'logs the transfer amount');
-      return nullTokenInstance.balanceOf(fromAccount);
-    }).then(function(frombalance){
-      assert.equal(frombalance.toNumber(), 90, 'deduct amount from fromAccount');
       return nullTokenInstance.balanceOf(toAccount);
     }).then(function(balance){
-      assert.equal(balance.toNumber(), 10, 'add amount to spenderAccount')
+      assert.equal(balance.toNumber(), 10, 'add amount to toAccount');
+      return nullTokenInstance.balanceOf(fromAccount);
+    }).then(function(balance){
+      assert.equal(balance.toNumber(), 90, 'deduct amount from fromAccount');
     });
   })
 
