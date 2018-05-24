@@ -7,7 +7,16 @@ Repo : https://github.com/stanly-johnson/null-token
 **/
 
 pragma solidity ^0.4.2;
+import "./NullToken.sol";
 
 contract CrowdSale {
-  
+
+  address admin;
+  NullToken public tokenContract;
+
+  function CrowdSale(NullToken _tokenContract) public {
+    admin = msg.sender;
+    tokenContract = _tokenContract;
+  }
+
 }

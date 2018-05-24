@@ -1,0 +1,104 @@
+{
+  "contractName": "CrowdSale",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820dea563ee572c0b5026003cbf16b07da928bfb71f7984577dfbe4aeaebb5a46720029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820dea563ee572c0b5026003cbf16b07da928bfb71f7984577dfbe4aeaebb5a46720029",
+  "sourceMap": "263:25:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;263:25:0;;;;;;;",
+  "deployedSourceMap": "263:25:0:-;;;;;",
+  "source": "/**\nNullToken SmartContract for CrowdSale\nConfirms to EIP20 standard\nhttps://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md\nAuthor : Stanly Johnson (stanlyjohnson@outlook.com)\nRepo : https://github.com/stanly-johnson/null-token\n**/\n\npragma solidity ^0.4.2;\n\ncontract CrowdSale {\n  \n}\n",
+  "sourcePath": "/Users/jacobgeorge/Documents/null-token/contracts/CrowdSale.sol",
+  "ast": {
+    "absolutePath": "/Users/jacobgeorge/Documents/null-token/contracts/CrowdSale.sol",
+    "exportedSymbols": {
+      "CrowdSale": [
+        2
+      ]
+    },
+    "id": 3,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "238:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "CrowdSale",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "263:25:0"
+      }
+    ],
+    "src": "238:51:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jacobgeorge/Documents/null-token/contracts/CrowdSale.sol",
+    "exportedSymbols": {
+      "CrowdSale": [
+        2
+      ]
+    },
+    "id": 3,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "238:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "CrowdSale",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "263:25:0"
+      }
+    ],
+    "src": "238:51:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xaf9647200b950facac6d87197b36b8bb8bb6a0d0",
+      "transactionHash": "0x7f4856601cb34f740d1dbb17b62fbb8532ef167bdc8617325495094828ffcc1c"
+    }
+  },
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-05-24T11:53:23.053Z"
+}

@@ -7,13 +7,19 @@ https://github.com/stanly-johnson/null-token
 
 var CrowdSale = artifacts.require("./CrowdSale.sol");
 
-contract (CrowdSale, function(accounts){
+contract ('CrowdSale', function(accounts){
   var tokenCrowdSaleInstance;
 
   it('Test for Contract initial values', function(){
-    return NullToken.deployed.then(function(instance){
+    return CrowdSale.deployed().then(function(instance){
       tokenCrowdSaleInstance = instance;
-    })
+      return tokenCrowdSaleInstance.address
+    }).then(function(address){
+      assert.notEqual(address, 0x0, 'has contract address');
+      return tokenCrowdSaleInstance.tokenContract();
+    }).then(function(address){
+      assert.notEqual(address, 0x0, 'has token contract address');
+    });
   });
 
-})//end of contract
+});//end of contract
