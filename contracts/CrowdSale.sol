@@ -25,10 +25,14 @@ contract CrowdSale {
     tokenPrice = _tokenPrice;
   }
 
+  function safeMultiply(uint x, uint y) internal pure returns (uint z){
+    require(y == 0 || (z = x * y)/y == x );
+  }
+
   //buyTokens function
   function buyTokens (uint256 _numberOfToken) public payable {
-
-    require(msg.value == _numberOfToken * tokenPrice);
+    require(tokenContract.balanceOf(this) >= _numberOfToken)
+    require(msg.value == safeMultiply(_numberOfToken, tokenPrice));
     emit Sell(msg.sender, _numberOfToken);
     tokensSold += _numberOfToken;
   }

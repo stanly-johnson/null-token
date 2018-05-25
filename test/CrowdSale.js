@@ -6,12 +6,16 @@ https://github.com/stanly-johnson/null-token
 **/
 
 var CrowdSale = artifacts.require("./CrowdSale.sol");
+var NullToken = artifacts.require("./NullToken.sol");
 
 contract ('CrowdSale', function(accounts){
   var tokenCrowdSaleInstance;
+  var nullTokenInstance;
   //setting price in wei
   var tokenPrice = 10000000000000;
   var tokenBuyer = accounts[5];
+  var owner = accounts[0];
+  var tokensForSale = 500000;
   var numberOfTokens;
 
   it('Test for Contract initial values', function(){
@@ -30,8 +34,13 @@ contract ('CrowdSale', function(accounts){
   });
 
   it('Test for Buy Token Functionality', function(){
-    return CrowdSale.deployed().then(function(instance){
+    return NullToken.deployed().then(function(instance){
+      nullTokenInstance = instance;
+      return NullToken.deployed()
+    }).then(function(instance){
       tokenCrowdSaleInstance = instance;
+      return tokenCrowdSaleInstance.transfer(tokenCrowdSaleInstance.address , tokensForSale, { from : owner })
+    }).then(function(receipt){
       numberOfTokens = 10;
       return tokenCrowdSaleInstance.buyTokens(numberOfTokens, {from : tokenBuyer, value : numberOfTokens * tokenPrice});
     }).then(function(receipt){
