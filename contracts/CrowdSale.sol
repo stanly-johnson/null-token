@@ -31,10 +31,12 @@ contract CrowdSale {
 
   //buyTokens function
   function buyTokens (uint256 _numberOfToken) public payable {
-    require(tokenContract.balanceOf(this) >= _numberOfToken)
-    require(msg.value == safeMultiply(_numberOfToken, tokenPrice));
-    emit Sell(msg.sender, _numberOfToken);
+    //require(msg.value == safeMultiply(_numberOfToken, tokenPrice));
+    require(msg.value == _numberOfToken * tokenPrice);
+    require(tokenContract.balanceOf(this) >= _numberOfToken);
+    require(tokenContract.transfer(msg.sender, _numberOfToken));
     tokensSold += _numberOfToken;
+    emit Sell(msg.sender, _numberOfToken);
   }
 
 }

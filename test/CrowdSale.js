@@ -36,13 +36,13 @@ contract ('CrowdSale', function(accounts){
   it('Test for Buy Token Functionality', function(){
     return NullToken.deployed().then(function(instance){
       nullTokenInstance = instance;
-      return NullToken.deployed()
+      return CrowdSale.deployed();
     }).then(function(instance){
       tokenCrowdSaleInstance = instance;
       return tokenCrowdSaleInstance.transfer(tokenCrowdSaleInstance.address , tokensForSale, { from : owner })
     }).then(function(receipt){
       numberOfTokens = 10;
-      return tokenCrowdSaleInstance.buyTokens(numberOfTokens, {from : tokenBuyer, value : numberOfTokens * tokenPrice});
+      return tokenCrowdSaleInstance.buyTokens(numberOfTokens, {from : tokenBuyer, value : numberOfTokens * 1});
     }).then(function(receipt){
       assert.equal(receipt.logs.length, 1, 'triggers one event');
       assert.equal(receipt.logs[0].event, 'Sell', 'should be the "Transfer" event');
@@ -52,6 +52,9 @@ contract ('CrowdSale', function(accounts){
     }).then(function(amount){
       assert.equal(amount.toNumber(), numberOfTokens, 'increments the number of tokens sold');
       //test for limit
+      return nullTokenInstance.balanceOf(buyer);
+    }).then(function(balance){
+      assert.equal(balance.toNumber(), numberOfTokens, 'balance match with number of tokens');
       return tokenCrowdSaleInstance.buyTokens(numberOfTokens, {from : tokenBuyer, value : 10});
     }).then(assert.fail).catch(function(error){
       assert(error.message.indexOf('revert') >= 0, 'transaction must fail - value-token mismatch');
