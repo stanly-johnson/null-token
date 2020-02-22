@@ -6,7 +6,7 @@ Author : Stanly Johnson (stanlyjohnson@outlook.com)
 Repo : https://github.com/stanly-johnson/null-token
 **/
 
-pragma solidity ^0.4.2;
+pragma solidity ^0.5.0;
 
 contract NullToken {
 
@@ -20,9 +20,10 @@ contract NullToken {
   event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 
   mapping(address => uint256) public balanceOf;
+  
   mapping(address => mapping(address => uint256)) public allowance;
-
-  function NullToken(uint256 _seedAmount) public {
+n
+  constructor (uint256 _seedAmount) public {
       totalSupply = _seedAmount;
       balanceOf[msg.sender] = totalSupply;
   }
@@ -47,7 +48,6 @@ contract NullToken {
   }
 
   function transferFrom(address _fromAddress, address _toAddress, uint256 _value) public returns (bool success){
-
     require(balanceOf[_fromAddress] >= _value);
     require(allowance[_fromAddress][msg.sender] >= _value);
     balanceOf[_fromAddress] -= _value;
