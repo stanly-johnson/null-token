@@ -20,9 +20,8 @@ contract NullToken {
   event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 
   mapping(address => uint256) public balanceOf;
-  
   mapping(address => mapping(address => uint256)) public allowance;
-n
+
   constructor (uint256 _seedAmount) public {
       totalSupply = _seedAmount;
       balanceOf[msg.sender] = totalSupply;

@@ -3059,11 +3059,11 @@
         }
       },
       "links": {},
-      "address": "0xbE2256236B637B2C3AB9A3e43E06e3790E33dAE8",
-      "transactionHash": "0x1e9eada5bd7dd5a0c3fcd9fe48a5a5a21bd1fc3ac4dfd920f0ded6c8848f326c"
+      "address": "0x1969cF676E1Dd8920D324FAdfe463a1943C8B418",
+      "transactionHash": "0xf70814f6f10ad982fd49813c00b85b7bbe09d79c15b3ea8f90e461580d88cd36"
     }
   },
   "schemaVersion": "3.0.19",
-  "updatedAt": "2020-02-22T06:09:56.569Z",
+  "updatedAt": "2020-02-22T06:36:02.296Z",
   "networkType": "ethereum"
 }
